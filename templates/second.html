@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+  <style>
+    html {
+      background-image: url('https://wallpaperaccess.com/full/2567134.jpg');
+      background-size: cover;
+    }
+    button {
+      background-color: white;
+      width: 50%;
+      color: black;
+      padding: 15px;
+      margin: 10px 0px;
+      border: none;
+      cursor: pointer;
+      border: 1px solid black;
+    }
+        button:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Thank you for helping us reduce food waste!</h1>
+  <p>Design your trip and we will match you with compatible restaraunts! </p>
+
+  <form action="third" method="post">
+
+
+    <p> Any specific food you are looking for?</p>
+    <input type="checkbox" id="Pastry" name="Pastry" value="Pastry">
+    <label for="vehicle1"> Pastry</label><br>
+    <input type="checkbox" id="fruit" name="fruit" value="fruit">
+    <label for="fruit"> Fruit </label><br>
+    <input type="checkbox" id="veg" name="veg" value="veg">
+    <label for="veg"> Vegetable</label><br>
+    <input type="checkbox" id="drink" name="drink" value="drink">
+    <label for="drink"> Drink</label><br>
+    <input type="checkbox" id="snack" name="snack" value="snack">
+    <label for="snack"> Snack</label><br>
+    <input type="checkbox" id="dairy" name="dairy" value="dairy">
+    <label for="dairy"> Dairy</label><br>
+    <input type="checkbox" id="meat" name="meat" value="meat">
+    <label for="meat"> Meat</label><br>
+    <input type="checkbox" id="can" name="can" value="can">
+    <label for="can"> Canned food</label><br>
+    <input type="checkbox" id="NA" name="NA" value="NA">
+    <label for="NA"> No specifications!</label><br>
+
+    <br>
+
+    <label for="fname">How far are you willing to drive (km):</label> 
+    <input type="number" id="radius" name="radius" value=""><br><br>
+
+    <p> how much food can you take?</p>
+    <label for="lname">Maximum weight your vehicle can carry (lbs):</label>
+    <input type="number" id="weight" name="weight" value=""><br><br>
+
+    <button type="button submit" class="button"> Submit</button>
+    <a href="/">
+      <button type="button" class="cancelbtn"> Cancel</button></a>
+  </form>
+
+  
+</body>
+
+</html>

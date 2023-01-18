@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<br>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Signup Page </title>
+  <style>
+    html Body {
+      background-image: url('https://img.freepik.com/free-photo/grilled-chicken-rice-spicy-chickpeas-avocado-cabbage-pepper-buddha-bowl-dark-top-view_127032-1966.jpg?w=2000');
+      background-size: cover;
+      background-color: rgba(255, 255, 255, 0.8)
+
+      
+    }
+  </style>
+  <style>
+    Body {
+      font-family: Cambria;
+      font-weight: 800;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+      background-color: white;
+      width: 50%;
+      height: 30%;
+      color: black;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      border: 1px solid black;
+    }
+
+    form {}
+
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      margin: 8px 8px;
+      padding: 12px 20px;
+      display: inline-block;
+      border: 2px solid green;
+      box-sizing: border-box;
+    }
+
+    button:hover {
+      opacity: 0.7;
+    }
+
+    .cancelbtn {
+      width: 25%;
+      padding: 15px;
+      margin: 10px 5px;
+    }
+
+
+    .container {
+      padding: 25px;
+      background-color: white;
+      background-color: rgba(255, 255, 255, 0.8);
+      font-size: 25px;
+    }
+
+    .head1 {
+      font-size: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/signup" method="post"> 
+    <div class="container">
+      <center>
+        <h1> Food Bank Signup </h1>
+      </center>
+      <label>Username: </label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label>Password: </label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+
+      <label>Organization: </label>
+      <input type="text" placeholder="Enter Organization name" name="organization" required>
+
+      <label>Address: </label>
+      <input type="text" placeholder="Enter Address" name="address" required>
+
+      <button type="button submit" class="button"> Sign Up</button>
+      <a href="/"><button type="button" class="cancelbtn"> Cancel</button></a>
+    </div>
+  </form>
+</body>
+
+</html>

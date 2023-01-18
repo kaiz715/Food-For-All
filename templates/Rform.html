@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+<style>
+    html {
+      background-image: url('https://images4.alphacoders.com/688/688879.jpg');
+      background-size: cover;
+    }
+  button {
+      background-color: white;
+      width: 50%;
+      color: black;
+      padding: 15px;
+      margin: 10px 0px;
+      border: none;
+      cursor: pointer;
+      border: 1px solid black;
+    }
+        button:hover {
+      opacity: 0.7;
+    }
+  </style>
+  </head>
+  <body>
+    <h1>Thank you for helping us reduce food waste!</h1>
+    
+      <p> Help us match you to a food bank</p> <br>
+    
+<form action="/rform" method="post">
+
+  <label for="Rname">Restaurant name:</label> 
+  <input type="Rname" id="Rname" name="Rname" value=""><br><br>
+  
+  <label for="Radd">Restaurant address:</label> 
+    <input type="Radd" id="Radd" name="Radd" value=""><br><br>
+
+    
+    <p>What food can you contribute?</p>
+  <label for="fname1">Food item:</label>
+  <input type="text" id="fname1" name="fname1">
+  <label for="quant1">   Quantity:</label>
+  <input type="number" id="quant1" name="quant1">
+  <label for="expd1">  Expiration Date:</label>
+  <input type="date" id="expd1" name="expd1">
+        <br><br>
+  <label for="fname2">Food item:</label>
+  <input type="text" id="fname2" name="fname2">
+  <label for="quant2">   Quantity:</label>
+  <input type="number" id="quant2" name="quant2">
+  <label for="expd2">  Expiration Date:</label>
+  <input type="date" id="expd2" name="expd2">
+        <br><br>  <label for="fname3">Food item:</label>
+  <input type="text" id="fname3" name="fname3">
+  <label for="quant3">   Quantity:</label>
+  <input type="number" id="quant3" name="quant3">
+  <label for="expd3">  Expiration Date:</label>
+  <input type="date" id="expd3" name="expd3">
+        <br><br>  <label for="fname4">Food item:</label>
+  <input type="text" id="fname4" name="fname4">
+  <label for="quant4">   Quantity:</label>
+  <input type="number" id="quant4" name="quant4">
+  <label for="expd4">  Expiration Date:</label>
+  <input type="date" id="expd4" name="expd4">
+        <br><br>
+   <label for="fname5">Food item:</label>
+  <input type="text" id="fname5" name="fname5">
+  <label for="quant5">   Quantity:</label>
+  <input type="number" id="quant5" name="quant5">
+  <label for="expd5">  Expiration Date:</label>
+  <input type="date" id="expd5" name="expd5">
+        <br><br>
+      <button type="button submit" class="button"> Submit! </button>
+        <a href="/"><button type="button" class="cancelbtn"> Cancel</button></a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+/* Optional: Makes the sample page fill the window. */
+#container {
+  height: 100%;
+  display: flex;
+}
+
+#sidebar {
+  flex-basis: 20rem;
+  flex-grow: 2;
+  padding: 1rem;
+  width: 130rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#map {
+  flex-basis: 0;
+  flex-grow: 4;
+  height: 100%;
+}
+
+#directions-panel {
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 50px;
+  color: #000000;
+  font-family: 'Cambria';
+  font-weight: 800; 
+}
+h2 {
+  font-size: 50px;
+  color: #7a4a00;
+  font-family: 'Cambria';
+  font-weight: 1000;
+
+  }
+h3 {
+  font-size: 50px;
+  color: #000000;
+  font-family: 'Cambria';
+  font-weight: 1000; 
+}
+body {
+  height: 87%;
+  width: 99%;
+  font-family: 'Cambria';
+  text-align: center;
+  font-size: 20px;
+  background-color: rgba(255,255,255,0.8);
+
+  font-weight: 800;
+  color: #000000;
+
+  /*
+  background: #f9d3e0;
+  color: #e63b7a;
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+*/
+}
+img {
+    width: 180px;
+    length: 180px;
+}
+
+/*body {
+  text-align: center;
+  font-family: 'Arial';
+  background: azure;
+  color: purple;
+}*/

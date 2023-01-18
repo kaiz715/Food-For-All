@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <style>
+      html {
+        background-image: url('https://wallpaperaccess.com/full/199469.jpg');
+        background-size: cover;
+      }
+      body {
+        text-align: left;
+      }
+    </style>
+    <script>
+      var balls = '{{ balls }}';
+      var restaurants = '{{ restaurants }}';
+      var restaurantName = '{{ restaurantName }}';
+      var restaurantFoods = '{{ restaurantFoods }}';
+      var restaurantQuantity = '{{ restaurantQuantity }}';
+    </script>
+
+    <title>Waypoints in Directions</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}" />
+    <script>
+      function initMap() {
+  const directionsService = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer();
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 6,
+    center: { lat: 41.85, lng: -87.65 },
+  });
+
+  directionsRenderer.setMap(map);
+  document.getElementById("submit").addEventListener("click", () => {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  });
+}
+
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+  const waypts = [];
+  const checkboxArray = document.getElementById("waypoints");
+
+  for (let i = 0; i < checkboxArray.length; i++) {
+    if (checkboxArray.options[i].selected) {
+      waypts.push({
+        location: checkboxArray[i].value,
+        stopover: true,
+      });
+    }
+  }
+
+  directionsService
+    .route({
+      origin: balls,
+      destination: balls,
+      waypoints: waypts,
+      optimizeWaypoints: true,
+      travelMode: google.maps.TravelMode.DRIVING,
+    })
+    .then((response) => {
+      directionsRenderer.setDirections(response);
+
+      const route = response.routes[0];
+      const summaryPanel = document.getElementById("directions-panel");
+
+      summaryPanel.innerHTML = "";
+
+      // For each route, display summary information.
+      for (let i = 0; i < route.legs.length; i++) {
+        const routeSegment = i + 1;
+
+        summaryPanel.innerHTML +=
+          "<b>Route Segment: " + routeSegment + "</b><br>";
+        summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+        summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
+        summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
+      }
+    })
+    .catch((e) => window.alert("Directions request failed due to " + status));
+}
+
+window.initMap = initMap;
+    </script>
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="map" style="padding: 50px;"></div>
+      <div id="sidebar">
+        <div>
+          <b style="font-size:40px;">Restaurants:{{restaurantsInfo|length}}</b> <br />
+          <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
+          <select multiple id="waypoints">
+            {% for i in range(restaurantsInfo|length) %}
+            <option value="{{restaurantsInfo[i]['address']}}">{{restaurantsInfo[i]["name"]}}</option>
+            {% endfor %}
+          </select>
+          <br />
+          <input type="submit" id="submit" />
+        </div>
+        <div id="directions-panel"></div>
+        {% for i in range(restaurantsInfo|length) %}
+        <b style="font-size:40px;">{{restaurantsInfo[i]["name"]}}</b><br/>
+        <b>{{restaurantsInfo[i]["address"]}}</b><br/>
+        <div style = "text-align: left;">
+          {% for j in restaurantFoods[i] %}
+          <b> - {{j["food_name"]}}, Quantity:{{j["quantity"]}}, Category: {{j["category"]}}, Weight:{{j["weight"]}}lbs, Calories per unit: {{j["calories"]}}</b><br />
+          {% endfor %}
+        </div>
+        <br>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClOGhSGgjXNaUYR8my5QbWi0AvMUxU7z4&callback=initMap&v=weekly" async
+    defer
+  ></script>
+  </body>
+</html>
